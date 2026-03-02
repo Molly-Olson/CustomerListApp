@@ -80,54 +80,56 @@
             // 
             txtEmail.Location = new Point(123, 82);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(125, 27);
+            txtEmail.Size = new Size(446, 27);
             txtEmail.TabIndex = 4;
             // 
             // txtLastName
             // 
             txtLastName.Location = new Point(123, 39);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(125, 27);
+            txtLastName.Size = new Size(446, 27);
             txtLastName.TabIndex = 5;
             // 
             // txtFirstName
             // 
             txtFirstName.Location = new Point(123, 2);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(125, 27);
+            txtFirstName.Size = new Size(446, 27);
             txtFirstName.TabIndex = 6;
             // 
             // txtPhone
             // 
             txtPhone.Location = new Point(123, 115);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(125, 27);
+            txtPhone.Size = new Size(446, 27);
             txtPhone.TabIndex = 7;
-            txtPhone.TextChanged += textBox4_TextChanged;
+       
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(154, 159);
+            btnSave.Location = new Point(475, 159);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 8;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(48, 159);
+            btnCancel.Location = new Point(352, 159);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 9;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(593, 276);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(txtPhone);

@@ -36,7 +36,7 @@
             // 
             // btnNewCustomer
             // 
-            btnNewCustomer.Location = new Point(376, 12);
+            btnNewCustomer.Location = new Point(776, 12);
             btnNewCustomer.Name = "btnNewCustomer";
             btnNewCustomer.Size = new Size(165, 29);
             btnNewCustomer.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // btnEditCustomer
             // 
-            btnEditCustomer.Location = new Point(547, 12);
+            btnEditCustomer.Location = new Point(581, 12);
             btnEditCustomer.Name = "btnEditCustomer";
             btnEditCustomer.Size = new Size(161, 29);
             btnEditCustomer.TabIndex = 1;
@@ -63,7 +63,7 @@
             dgvCustomers.Size = new Size(938, 539);
             dgvCustomers.TabIndex = 2;
             // 
-            // Customer
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -71,9 +71,9 @@
             Controls.Add(dgvCustomers);
             Controls.Add(btnEditCustomer);
             Controls.Add(btnNewCustomer);
-            Name = "Customer";
+            Name = "Form1";
             Text = "Customers";
-          
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
             ResumeLayout(false);
         }
