@@ -5,11 +5,33 @@ namespace CustomerListApp
     public partial class Form1 : Form
     {
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Customer> Customers { get; set; }
+        public BindingList<Customer> Customers { get; set; }
         public Form1()
         {
             InitializeComponent();
-            Customers = new List<Customer>();
+            Customers = new BindingList<Customer>
+            { 
+                AllowNew = true,
+                AllowRemove = true,
+                AllowEdit = false
+            };
+
+            //Customers.AddRange(new List<Customer>
+            //    {
+            //    new Customer {
+            //        FirstName = "Billie",
+            //        LastName = "Olson",
+            //        Email = "BRO@gmail.com",
+            //        Phone = "555-555-5555"
+            //    },
+            //      new Customer {
+            //        FirstName = "Kimball",
+            //        LastName = "Olson2",
+            //        Email = "KCO@gmail.com",
+            //        Phone = "444-555-5555"
+            //    },
+
+           //     });
         }
         //fire code to create new customer, this event action was created by double clicking new customer attribute
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -22,26 +44,33 @@ namespace CustomerListApp
             {
                 // add the customer
                 Customers.Add(newCustomerForm.GetCustomer());
-                // refrest the datagridview
-                dgvCustomers.DataSource = null;
-                dgvCustomers.DataSource = Customers;
+               
             }
         }
         //fire code to edit selected customer also created event action with double click
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
             var customerForm = new CustomerForm();
-            customerForm.LoadCustomer(new Customer
+
+            var selectedCustomer = dgvCustomers.CurrentRow?.DataBoundItem as Customer; 
+
+            if (selectedCustomer == null)
             {
-                FirstName = "Molly",
-                LastName = "Olson",
-                Email = "MO@gmail.com",
-                Phone = "555-555-5555"
-            });
+                MessageBox.Show("Please select a Customer to edit");
+                    return;
+            }
+
+            customerForm.LoadCustomer(selectedCustomer);
+            //{
+            //    FirstName = "Molly",
+            //    LastName = "Olson",
+            //    Email = "MO@gmail.com",
+            //    Phone = "555-555-5555"
+            //});
 
             if (customerForm.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Dialog returned an ok.");
+               // update the customer in the list MessageBox.Show("Dialog returned an ok.");
             }
         }
 
