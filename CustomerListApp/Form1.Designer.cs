@@ -61,7 +61,7 @@
             dgvCustomers.Name = "dgvCustomers";
             dgvCustomers.RowHeadersWidth = 51;
             dgvCustomers.Size = new Size(938, 539);
-            dgvCustomers.TabIndex = 2;
+            dgvCustomers.TabIndex = 2;    
             // 
             // Form1
             // 

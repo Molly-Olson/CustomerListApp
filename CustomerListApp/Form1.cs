@@ -10,7 +10,7 @@ namespace CustomerListApp
         {
             InitializeComponent();
             Customers = new BindingList<Customer>
-            { 
+            {
                 AllowNew = true,
                 AllowRemove = true,
                 AllowEdit = false
@@ -31,7 +31,7 @@ namespace CustomerListApp
             //        Phone = "444-555-5555"
             //    },
 
-           //     });
+            //     });
         }
         //fire code to create new customer, this event action was created by double clicking new customer attribute
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace CustomerListApp
             {
                 // add the customer
                 Customers.Add(newCustomerForm.GetCustomer());
-               
+
             }
         }
         //fire code to edit selected customer also created event action with double click
@@ -52,12 +52,13 @@ namespace CustomerListApp
         {
             var customerForm = new CustomerForm();
 
-            var selectedCustomer = dgvCustomers.CurrentRow?.DataBoundItem as Customer; 
+            // this line below is like taking a copy, in this case of an existing customers input data, and sending it as a new variable (reference type variable) "selectedCustomer"
+            var selectedCustomer = dgvCustomers.CurrentRow?.DataBoundItem as Customer;
 
             if (selectedCustomer == null)
             {
                 MessageBox.Show("Please select a Customer to edit");
-                    return;
+                return;
             }
 
             customerForm.LoadCustomer(selectedCustomer);
@@ -70,13 +71,33 @@ namespace CustomerListApp
 
             if (customerForm.ShowDialog() == DialogResult.OK)
             {
-               // update the customer in the list MessageBox.Show("Dialog returned an ok.");
+                // update the customer in the list MessageBox.Show("Dialog returned an ok.");
+                var updateCustomer = customerForm.GetCustomer();
+                selectedCustomer.FirstName = updateCustomer.FirstName;
+                selectedCustomer.LastName = updateCustomer.LastName;
+                selectedCustomer.Email = updateCustomer.Email;
+                selectedCustomer.Phone = updateCustomer.Phone;
+                dgvCustomers.Refresh();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             dgvCustomers.DataSource = Customers;
+        }
+
+        private void dgvCustomers_SelectionChanged(object sender, EventArgs e)
+        {
+            var isValidSelection = dgvCustomers.CurrentRow?.DataBoundItem is Customer;
+
+            if (isValidSelection)
+            {
+                btnEditCustomer.Enabled = true;
+            }
+            else
+            {
+                btnEditCustomer.Enabled = false;
+            }
         }
     }
 }
