@@ -56,7 +56,32 @@ namespace CustomerListApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           // MessageBox.Show($"Customer saved: {_customer.FirstName} {_customer.LastName}");
+            // VALIDATION goes here
+            // does form have all needed info in correct format?
+            if (Validators.ContainsValue(txtFirstName.Text) == false)
+            {
+                MessageBox.Show("Please enter first name");
+                return;
+            }
+            if (Validators.ContainsValue(txtLastName.Text) == false)
+            {
+                MessageBox.Show("Please enter last name");
+                return;
+            }
+            if (Validators.ContainsValue(txtEmail.Text) == false &&
+                Validators.ContainsValue(txtPhone.Text) == false)
+            {
+                MessageBox.Show("Please enter email address");
+                return;
+            }
+            // check the pattern of email using regex
+            if (Validators.ContainsValue(txtEmail.Text) &&
+                  Validators.ContainsValue(txtPhone.Text) == false)
+            {
+                MessageBox.Show("Please enter email address");
+                return;
+            }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

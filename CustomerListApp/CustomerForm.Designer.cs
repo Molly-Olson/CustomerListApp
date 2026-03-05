@@ -103,7 +103,6 @@
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(446, 27);
             txtPhone.TabIndex = 7;
-       
             // 
             // btnSave
             // 
@@ -127,8 +126,10 @@
             // 
             // CustomerForm
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new Size(593, 276);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
