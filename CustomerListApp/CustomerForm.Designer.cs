@@ -81,35 +81,35 @@
             txtEmail.Location = new Point(123, 82);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(446, 27);
-            txtEmail.TabIndex = 4;
+            txtEmail.TabIndex = 3;
             // 
             // txtLastName
             // 
             txtLastName.Location = new Point(123, 39);
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(446, 27);
-            txtLastName.TabIndex = 5;
+            txtLastName.TabIndex = 2;
             // 
             // txtFirstName
             // 
             txtFirstName.Location = new Point(123, 2);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(446, 27);
-            txtFirstName.TabIndex = 6;
+            txtFirstName.TabIndex = 1;
             // 
             // txtPhone
             // 
             txtPhone.Location = new Point(123, 115);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(446, 27);
-            txtPhone.TabIndex = 7;
+            txtPhone.TabIndex = 4;
             // 
             // btnSave
             // 
             btnSave.Location = new Point(475, 159);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
-            btnSave.TabIndex = 8;
+            btnSave.TabIndex = 5;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -119,7 +119,7 @@
             btnCancel.Location = new Point(352, 159);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);
-            btnCancel.TabIndex = 9;
+            btnCancel.TabIndex = 6;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
@@ -143,6 +143,7 @@
             Controls.Add(lblFirstName);
             Name = "CustomerForm";
             Text = "CustomerForm";
+            Load += CustomerForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

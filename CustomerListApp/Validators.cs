@@ -11,7 +11,7 @@ namespace CustomerListApp
     {
         public static bool IsValidPhone(string phone)
         {
-            if (string.IsNullOrWhiteSpace(phone)) || string.IsNullOrEmpty(phone))
+            if (string.IsNullOrWhiteSpace(phone) || string.IsNullOrEmpty(phone))
                     {
                 return false;
                 

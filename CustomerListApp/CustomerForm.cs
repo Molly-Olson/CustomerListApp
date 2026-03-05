@@ -71,12 +71,12 @@ namespace CustomerListApp
             if (Validators.ContainsValue(txtEmail.Text) == false &&
                 Validators.ContainsValue(txtPhone.Text) == false)
             {
-                MessageBox.Show("Please enter email address");
+                MessageBox.Show("Please enter email address or phone number");
                 return;
             }
             // check the pattern of email using regex
             if (Validators.ContainsValue(txtEmail.Text) &&
-                  Validators.ContainsValue(txtPhone.Text) == false)
+                  Validators.IsValidEmail(txtPhone.Text) == false)
             {
                 MessageBox.Show("Please enter email address");
                 return;
